@@ -14,6 +14,7 @@
         width: 200px;
         height: 200px;
         margin: 100px 100px;
+        /*-webkit-transition: all 3s ease-in;*/
         /*红到橙色*/
         /*transform: rotate(158deg); */
 
@@ -67,29 +68,58 @@
         left: 50%;
         z-index: 1;
     }
+
+    .content {
+        width: 100px;
+        height:100px;
+        background-color: pink;
+    }
+
+    .left {
+        float: left;
+        margin-left: 25%;
+        margin-top: 4%;
+    }
+    .right {
+        float: right;
+        margin-right: 25%;
+        margin-top: 13%;
+    }
+    .bottom {
+        float: left;
+        margin-left: -8%;
+        margin-top: 24%;
+    }
 </style>
 <body>
-
-<div class="big-scale">
-    <span type="text" value="" class="vals">30%</span>
-    <img src="./images/1.jpg" alt="" class="pic" id="div-1">
-    <span class="s-scale left-scale"></span>
-    <span class="s-scale right-scale"></span>
-    <span class="s-scale bottom-scale"></span>
+<div>
+    <div class="content left"></div>
+    <div class="content right"></div>
+    <div class="content bottom"></div>
+    <div class="big-scale">
+        <span type="text" value="" class="vals">30%</span>
+        <img src="./images/1.jpg" alt="" class="pic" id="div-1">
+        <span class="s-scale left-scale"></span>
+        <span class="s-scale right-scale"></span>
+        <span class="s-scale bottom-scale"></span>
+    </div>
 </div>
+
 </body>
 </html>
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jqueryRotata.js"></script>
 <script>
 
     var i = 0;
-    function trans() {
+    function timeMsg() {
 
         i >= 3 ? i = 0 : i;
 
         if (i == 0) {
             document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 158) + "deg)";
             $('.vals').text("60%");
+            $()
         }
         if (i == 1) {
             document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 290) + "deg)";
@@ -99,19 +129,65 @@
             document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
             $('.vals').text("30%");
         }
-
+        var reg = i;
+        console.log("reg",reg)
         i++;
+        var t = setTimeout("timeMsg()", 2000);
+        $('.left').mouseover(function(){
+            clearTimeout(t);
+            document.getElementById('div-1').style.transform = "rotate(" + ((i-1) * 360 + 360) + "deg)";
+            $('.vals').text("30%");
 
-//        document.getElementById('div-1').style.transform="rotate("+30*i+"deg)";
+        }).mouseleave(function(){
+            setTimeout("timeMsg(i-1)", 2000);
+        });
     }
+    timeMsg(i);
 
-    var int = setInterval("trans()", 3000);
+//    var int = setInterval("timeMsg()", 2000);
+//
+//    $('.left').mouseover(function(){
+//        clearTimeout(t);
+//        i=2;
+//        document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
+//        $('.vals').text("30%");
+//
+//    });
 
 
-    //    $('.big-scale').mouseover(function(){
-    //        clearInterval(int);
-    //    }).mouseout(function(){
-    //        setInterval("trans()",3000);
-    //    })
-</script>
+//鼠标移上旋转
+//    $('#div-1').rotate({
+//        bind : {
+//            mouseover : function(){
+//                $(this).rotate({animateTo: 180});
+//            }, mouseout : function(){
+//                $(this).rotate({animateTo: 0});
+//            }
+//        }
+//    });
+//一直旋转
+//var angle = 0;
+//setInterval(function(){
+//    angle +=3;
+//    $('#div-1').rotate({
+//        angle,
+//        bind: {
+//            click: function () {
+//                alert($(this).getRotateAngle());
+//            }
+//        }
+//
+//    });
+//}, 50);
+
+//console.log($('#div-1').css('transform'));
+//var rotation = function (){
+//    $('#div-1').rotate({
+//        angle: 0,
+//        animateTo: 360,
+//        callback: rotation
+//    });
+//};
+//rotation();
+
 </script>
