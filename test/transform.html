@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片旋转</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        margin: 100px 100px;
+        /*红到橙色*/
+        /*transform: rotate(158deg); */
+
+        /*红到绿色*/
+        /*transform: rotate(-78deg);*/
+        /*绿到红*/
+        /*transform: rotate(-0deg);*/
+
+        /*animation:myrotate 2s linear infinite;*/
+        /*-webkit-animation:myrotate 2s linear infinite;*/
+    }
+
+    .big-scale {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin: auto;
+        border-radius: 50%;
+        border: 1px solid pink;
+    }
+
+    .s-scale {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    .left-scale {
+        top: 22%;
+        left: 4%;
+        background-color: #fd4044;
+    }
+
+    .right-scale {
+        position: absolute;
+        top: 50%;
+        left: 97.3%;
+        background-color: #fe760a;
+    }
+
+    .bottom-scale {
+        background-color: #1bb871;
+        top: 80%;
+        left: 9%;
+    }
+    .vals {
+        position: absolute;
+        top: 50;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+    }
+</style>
+<body>
+
+<div class="big-scale">
+    <span type="text" value="" class="vals">30%</span>
+    <img src="./images/1.jpg" alt="" class="pic" id="div-1">
+    <span class="s-scale left-scale"></span>
+    <span class="s-scale right-scale"></span>
+    <span class="s-scale bottom-scale"></span>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+    var i = 0;
+    function trans() {
+
+        i >= 3 ? i = 0 : i;
+
+        if (i == 0) {
+            document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 158) + "deg)";
+            $('.vals').text("60%");
+        }
+        if (i == 1) {
+            document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 290) + "deg)";
+            $('.vals').text("10%");
+        }
+        if (i == 2) {
+            document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
+            $('.vals').text("30%");
+        }
+
+        i++;
+
+//        document.getElementById('div-1').style.transform="rotate("+30*i+"deg)";
+    }
+
+    var int = setInterval("trans()", 3000);
+
+
+    //    $('.big-scale').mouseover(function(){
+    //        clearInterval(int);
+    //    }).mouseout(function(){
+    //        setInterval("trans()",3000);
+    //    })
+</script>
+</script>
