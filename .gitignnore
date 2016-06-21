@@ -1,0 +1,53 @@
+__pycache__
+migrations
+
+# IDE
+*.idea
+*.DS_Store
+*.pyc
+
+# pic
+media/
+
+# static
+static/
+
+# compress js, css file
+local_static/CACHE/
+
+# package
+
+
+# PyBuilder
+target/
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Editor
+*.tags
+*.tags_sorted_by_file
+
+# redis
+dump.rdb
+
+# currrent config file
+config/settings.py
+local_static/js/atheneConfig.js
+
+*.log
