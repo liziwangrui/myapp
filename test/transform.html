@@ -116,45 +116,34 @@
     var i = 0;
     var key;
     var t = null;
+
+    function InterVal(num){
+        switch (num) {
+            case 0 :
+                $('#div-1').css('transform',"rotate(" + (num * 360 + 158) + "deg)");
+                $('.vals').text("60%");
+                break;
+            case 1:
+                $('#div-1').css('transform',"rotate(" + (num * 360 + 290) + "deg)");
+                $('.vals').text("10%");
+                break;
+            case 2:
+                $('#div-1').css('transform',"rotate(" + (num * 360 + 360) + "deg)");
+                $('.vals').text("30%");
+        }
+    }
+
     function timeMsg() {
 
         i >= 3 ? i = 0 : i;
 
-        if (i == 0) {
-            document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 158) + "deg)";
-            $('.vals').text("60%");
-            $()
-        }
-        if (i == 1) {
-            document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 290) + "deg)";
-            $('.vals').text("10%");
-        }
-        if (i == 2) {
-            document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
-            $('.vals').text("30%");
-        }
+        InterVal(i);
         i++;
         t = setTimeout("timeMsg()", 2000);
         $('.content').mouseover(function () {
             var key = $(this).attr('key');
             clearTimeout(t);
-
-            switch (parseInt(key)) {
-                case 0 :
-                    document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 158) + "deg)";
-                    $('.vals').text("60%");
-                    break;
-                case 1:
-                    document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 290) + "deg)";
-                    $('.vals').text("10%");
-                    break;
-                case 2:
-
-                    document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 360) + "deg)";
-                    $('.vals').text("30%");
-            }
-//            document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 360) + "deg)";
-
+            InterVal(parseInt(key));
         }).mouseleave(function () {
             var key = $(this).attr('key');
             clearTimeout(t);
@@ -162,6 +151,8 @@
         });
     }
     timeMsg(i);
+
+
 
     //    var int = setInterval("timeMsg()", 2000);
     //
