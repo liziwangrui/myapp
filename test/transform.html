@@ -61,9 +61,9 @@
         top: 80%;
         left: 9%;
     }
+
     .vals {
         position: absolute;
-        top: 50;
         top: 50%;
         left: 50%;
         z-index: 1;
@@ -71,7 +71,7 @@
 
     .content {
         width: 100px;
-        height:100px;
+        height: 100px;
         background-color: pink;
     }
 
@@ -80,11 +80,13 @@
         margin-left: 25%;
         margin-top: 4%;
     }
+
     .right {
         float: right;
         margin-right: 25%;
         margin-top: 13%;
     }
+
     .bottom {
         float: left;
         margin-left: -8%;
@@ -93,9 +95,9 @@
 </style>
 <body>
 <div>
-    <div class="content left"></div>
-    <div class="content right"></div>
-    <div class="content bottom"></div>
+    <div class="content left" key="2"></div>
+    <div class="content right" key="0"></div>
+    <div class="content bottom" key="1"></div>
     <div class="big-scale">
         <span type="text" value="" class="vals">30%</span>
         <img src="./images/1.jpg" alt="" class="pic" id="div-1">
@@ -112,6 +114,8 @@
 <script>
 
     var i = 0;
+    var key;
+    var t = null;
     function timeMsg() {
 
         i >= 3 ? i = 0 : i;
@@ -129,65 +133,80 @@
             document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
             $('.vals').text("30%");
         }
-        var reg = i;
-        console.log("reg",reg)
         i++;
-        var t = setTimeout("timeMsg()", 2000);
-        $('.left').mouseover(function(){
+        t = setTimeout("timeMsg()", 2000);
+        $('.content').mouseover(function () {
+            var key = $(this).attr('key');
             clearTimeout(t);
-            document.getElementById('div-1').style.transform = "rotate(" + ((i-1) * 360 + 360) + "deg)";
-            $('.vals').text("30%");
 
-        }).mouseleave(function(){
-            setTimeout("timeMsg(i-1)", 2000);
+            switch (parseInt(key)) {
+                case 0 :
+                    document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 158) + "deg)";
+                    $('.vals').text("60%");
+                    break;
+                case 1:
+                    document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 290) + "deg)";
+                    $('.vals').text("10%");
+                    break;
+                case 2:
+
+                    document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 360) + "deg)";
+                    $('.vals').text("30%");
+            }
+//            document.getElementById('div-1').style.transform = "rotate(" + (key * 360 + 360) + "deg)";
+
+        }).mouseleave(function () {
+            var key = $(this).attr('key');
+            clearTimeout(t);
+           t= setTimeout("timeMsg(key)", 2000);
         });
     }
     timeMsg(i);
 
-//    var int = setInterval("timeMsg()", 2000);
-//
-//    $('.left').mouseover(function(){
-//        clearTimeout(t);
-//        i=2;
-//        document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
-//        $('.vals').text("30%");
-//
-//    });
+    //    var int = setInterval("timeMsg()", 2000);
+    //
+    //    $('.left').mouseover(function(){
+    //        clearTimeout(t);
+    //        i=2;
+    //        document.getElementById('div-1').style.transform = "rotate(" + (i * 360 + 360) + "deg)";
+    //        $('.vals').text("30%");
+    //
+    //    });
 
 
-//鼠标移上旋转
-//    $('#div-1').rotate({
-//        bind : {
-//            mouseover : function(){
-//                $(this).rotate({animateTo: 180});
-//            }, mouseout : function(){
-//                $(this).rotate({animateTo: 0});
-//            }
-//        }
-//    });
-//一直旋转
-//var angle = 0;
-//setInterval(function(){
-//    angle +=3;
-//    $('#div-1').rotate({
-//        angle,
-//        bind: {
-//            click: function () {
-//                alert($(this).getRotateAngle());
-//            }
-//        }
-//
-//    });
-//}, 50);
+    //鼠标移上旋转
+    //    $('#div-1').rotate({
+    //        bind : {
+    //            mouseover : function(){
+    //                $(this).rotate({animateTo: 180});
+    //            }, mouseout : function(){
+    //                $(this).rotate({animateTo: 0});
+    //            }
+    //        }
+    //    });
+    //一直旋转
+    //var angle = 0;
+    //setInterval(function(){
+    //    angle +=3;
+    //    $('#div-1').rotate({
+    //        angle,
+    //        bind: {
+    //            click: function () {
+    //                alert($(this).getRotateAngle());
+    //            }
+    //        }
+    //
+    //    });
+    //}, 50);
 
-//console.log($('#div-1').css('transform'));
-//var rotation = function (){
-//    $('#div-1').rotate({
-//        angle: 0,
-//        animateTo: 360,
-//        callback: rotation
-//    });
-//};
-//rotation();
+    //console.log($('#div-1').css('transform'));
+    //var rotation = function (){
+    //    $('#div-1').rotate({
+    //        angle: 0,
+    //        animateTo: 360,
+    //        callback: rotation
+    //    });
+    //};
+    //rotation();
 
 </script>
