@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/liziwangrui/myapp/issues"
   },
-  "homepage": "https://github.com/liziwangrui/myapp#readme"
+  "homepage": "https://github.com/liziwangrui/myapp#readme",
+  "dependencies": {
+    "chart.js": "file:chart.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
 }
