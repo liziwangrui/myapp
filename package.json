@@ -1,26 +1,17 @@
 {
   "name": "myapp",
-  "version": "1.0.0",
-  "description": "demo test",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liziwangrui/myapp.git"
-  },
-  "author": "wangrui",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/liziwangrui/myapp/issues"
-  },
-  "homepage": "https://github.com/liziwangrui/myapp#readme",
   "dependencies": {
-    "chart.js": "file:chart.js"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "devDependencies": {}
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+  }
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="../js/jquery.bxslider.js"></script>
+<!-- bxSlider CSS file -->
+<link href="../css/jquery.bxslider.css" rel="stylesheet" />
+<style>
+    ul li img {
+        transition: all .2s ease;
+    }
+    ul li img:hover {
+       transform: scale(1.5);
+    }
+</style>
+<body>
+    <ul class="bxslider">
+        <li><img src="../images/weixin-1.jpg" /></li>
+        <li><img src="../images/weixin-2.jpg" /></li>
+        <li><img src="../images/weixin-3.jpg" /></li>
+        <li><img src="../images/weixin-3.jpg" /></li>
+    </ul>
+</body>
+<script>
+    $('.bxslider').bxSlider({
+        auto: true,         //设置轮播图自动播放
+        pager: false,
+        tikerHover:true     //设置鼠标悬浮上去轮播暂停
+    });
+
+</script>
+</html>
