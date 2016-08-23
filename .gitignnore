@@ -52,3 +52,4 @@ config/settings.py
 local_static/js/atheneConfig.js
 
 *.log
+.idea/
