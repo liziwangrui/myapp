@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="modal-container">
+    <div class="modal-card">
+        <div class="close-btn">x</div>
+        <div class="wrapper">
+            <p class="hins">提示</p>
+            <p class="hins-title">为了您能即时收到润色效果,请完善手机号</p>
+            <input type="text" class="input-con" placeholder="请输入手机号">
+            <div class="tel-con tel-right"><a href="javascript:;"></a></div>
+            <div class="tel-con tel-wrong"><a href="javascript:;">x</a></div>
+            <div class="msg-con"><span class="wrong-tip">手机号已存在，请更换手机号或联系客服400-007-2390</span></div>
+            <div>
+                <input type="text" class="input-con code-con" placeholder="验证码">
+                <button class="code-btn">获取验证码</button>
+            </div>
+        </div>
+        <div class="bottom">
+            <button class="sub-btn">确定</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<style type="text/css">
+    .modal-container {
+        visibility: visible;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        z-index: 1000;
+        background-color: rgba(51,51,51,.7);
+    }
+    .modal-card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 376px;
+        height: 370px;
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #979797;
+        margin-left: -188px;
+        margin-top: -185px;
+    }
+    .close-btn {
+        width: 14px;
+        height: 13px;
+        float: right;
+        font-size: 26px;
+        color: #979797;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    .hins {
+        font-size: 20px;
+        color:#494949;
+        font-family: STHeitiSC-Medium;
+    }
+    .hins-title {
+        font-size: 15px;
+        color: #828282;
+        font-family: STHeitiSC-Medium;
+    }
+    .input-con {
+        width: 320px;
+        height: 50px;
+        line-height: 50px;
+        text-indent: 10px;
+        outline: none;
+        border: 1px solid #eaeaea;
+        border-radius: 2px;
+        font-size: 15px;
+        color: #545454;
+        font-family: STHeitiSC-Medium;
+    }
+    .tel-con  {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        background-color: #fff6e9;
+        border-radius: 50%;
+        color: #ffaa27;
+        top: 28%;
+        right: 10%;
+    }
+    .tel-right>a {
+        display: inline-block;
+        background: #FFAA27;
+        line-height: 0;
+        font-size:0;
+        vertical-align: text-top;
+        -webkit-transform: rotate(45deg);
+    }
+    .tel-right>a:after {
+        content: '';
+        position: absolute;
+        width: 9px;
+        height: 5px;
+        border: 3px solid #FFAA27;
+        border-top: none;
+        border-right: none;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    .tel-right {
+        display: none;
+    }
+    .tel-wrong>a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #FFAA27;
+    }
+    .msg-con {
+        width: 291px;
+        height: 12px;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .wrong-tip {
+        font-size: 12px;
+        color: #FF3B3B;
+        font-family: STHeitiSC-Medium;
+    }
+    .code-con {
+        margin-top: 10px;
+    }
+    .code-btn {
+        position: absolute;
+        width: 130px;
+        height: 40px;
+        right: 32px;
+        border: 0;
+        top: 48%;
+        outline:none;
+        background-color: #fff6e9;
+        font-size: 15px;
+        color: #F9AA42;
+        font-family: STHeitiSC-Medium;
+    }
+    .bottom {
+        margin-top: 40px;
+    }
+    .sub-btn {
+        width: 320px;
+        height: 50px;
+        border-radius: 2px;
+        border: 0;
+        background-color: #FFAA27;
+        font-size: 18px;
+        color: #fff;
+        outline: none;
+        font-family: STHeitiSC-Medium;
+    }
+</style>
+<script>
+//    $('.close-btn').click(function(){
+//        $('.modal-container').hide();
+//    })
+</script>
