@@ -53,3 +53,6 @@ local_static/js/atheneConfig.js
 
 *.log
 .idea/
+ .idea/
+ popup/.idea/
+

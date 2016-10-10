@@ -5,17 +5,26 @@
     <title>Title</title>
 </head>
 <body>
+<div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
 <div class="modal-container">
     <div class="modal-card">
-        <div class="close-btn">x</div>
+        <div class="close-container">
+            <a href="javascript:;" class="close"></a>
+        </div>
         <div class="wrapper">
             <p class="hins">提示</p>
             <p class="hins-title">为了您能即时收到润色效果,请完善手机号</p>
-            <input type="text" class="input-con" placeholder="请输入手机号">
+            <input type="text" class="input-con input-container" placeholder="请输入手机号">
             <div class="tel-con tel-right"><a href="javascript:;"></a></div>
             <div class="tel-con tel-wrong"><a href="javascript:;">x</a></div>
             <div class="msg-con"><span class="wrong-tip">手机号已存在，请更换手机号或联系客服400-007-2390</span></div>
-            <div>
+            <div class="code-container">
                 <input type="text" class="input-con code-con" placeholder="验证码">
                 <button class="code-btn">获取验证码</button>
             </div>
@@ -29,7 +38,7 @@
 </html>
 <style type="text/css">
     .modal-container {
-        visibility: visible;
+        visibility: hidden;
         position: fixed;
         left: 0;
         top: 0;
@@ -51,7 +60,7 @@
         margin-left: -188px;
         margin-top: -185px;
     }
-    .close-btn {
+    .close-container {
         width: 14px;
         height: 13px;
         float: right;
@@ -89,7 +98,7 @@
         background-color: #fff6e9;
         border-radius: 50%;
         color: #ffaa27;
-        top: 28%;
+        top: 30%;
         right: 10%;
     }
     .tel-right>a {
@@ -142,7 +151,7 @@
         height: 40px;
         right: 32px;
         border: 0;
-        top: 48%;
+        top: 26%;
         outline:none;
         background-color: #fff6e9;
         font-size: 15px;
@@ -163,6 +172,94 @@
         outline: none;
         font-family: STHeitiSC-Medium;
     }
+    .close {
+        display: inline-block;
+        width: 20px;
+        height:5px;
+        background: #979797;
+        line-height: 0;
+        font-size:0;
+        vertical-align: middle;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .close:after {
+        content:'/';
+        display:block;
+        width: 20px;
+        height:5px;
+        background: #979797;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    .code-container {
+        position: relative;
+    }
+    .input-container {
+        position: relative;
+    }
+
+    /*加载动画*/
+    .spinner {
+        margin: 100px auto;
+        width: 50px;
+        height: 60px;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .spinner > div {
+        /*background-color: #67CF22;*/
+        height: 100%;
+        width: 6px;
+        background-color: #1fc8db;
+        display: inline-block;
+
+        -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+        animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .spinner .rect2 {
+        -webkit-animation-delay: -1.1s;
+        animation-delay: -1.1s;
+    }
+
+    .spinner .rect3 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+
+    .spinner .rect4 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+    }
+
+    .spinner .rect5 {
+        -webkit-animation-delay: -0.8s;
+        animation-delay: -0.8s;
+    }
+
+    @-webkit-keyframes stretchdelay {
+        0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+        20% { -webkit-transform: scaleY(1.0) }
+    }
+
+    @keyframes stretchdelay {
+        0%, 40%, 100% {
+            transform: scaleY(0.4);
+            -webkit-transform: scaleY(0.4);
+        }  20% {
+               transform: scaleY(1.0);
+               -webkit-transform: scaleY(1.0);
+           }
+    }
+
 </style>
 <script>
 //    $('.close-btn').click(function(){
