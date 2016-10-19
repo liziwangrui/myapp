@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS中的浮动和清除浮动</title>
+</head>
+<body>
+<div>
+    <ul>
+        <li>浮动的核心:浮动的元素脱离文档流,向左向右浮动,直达该元素碰到父元素或者下一个浮动元素为止</li>
+        <li>浮动带来的问题:父元素高度坍塌.</li>
+        <li>解决办法:清除浮动</li>
+        <li>清除浮动有clear,BFC(块状格式化上下文这里告诉我们什么是BFC,http://www.cnblogs.com/dolphinX/p/3508869.html)</li>
+        <li>不要在浮动元素上清除浮动</li>
+        <li>BFC清除浮动,BFC全称是块状格式化上下文,它是按照块级盒子布局的</li>
+    </ul>
+    <p>
+        BFC的主要特征
+        BFC就是页面上的一个独立的容器，容器内的子元素不会影响到外面的元素，外面的元素也不会影响到容器内的子元素。
+        盒子垂直方向的距离由margin决定，属于同一个BFC的相邻盒子的上下margin会发生折叠；分别触发两个元素的BFC，就可以解决垂直边距折叠的问题
+        BFC可以包含浮动；通常用来解决浮动父元素高度坍塌的问题。
+        其中，BFC清除浮动就是用的“包含浮动”这条特性。
+
+        BFC的触发方式
+        我们可以给父元素添加以下属性来触发BFC：
+
+        float 为 left | right
+        overflow 为 hidden | auto | scorll
+        display 为 table-cell | table-caption | inline-block | flex | inline-flex
+        position 为 absolute | fixed
+        所以我们可以给父元素设置overflow:auto来简单的实现BFC清除浮动，但是为了兼容IE最好用overflow:hidden。但是这样元素阴影或下拉菜单会被截断，比较局限。
+
+
+
+        文／齐修_qixiuss（简书作者）
+        原文链接：http://www.jianshu.com/p/09bd5873bed4
+        著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
+    </p>
+</div>
+<div class="box-wrapper">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+</body>
+</html>
+<style>
+    .box-wrapper {
+        overflow: hidden;
+        border: 5px solid red;
+    }
+    .box-wrapper .box {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        background-color: green;
+    }
+</style>

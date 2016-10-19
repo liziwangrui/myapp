@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS中的浮动和清除浮动</title>
+</head>
+<body>
+<div>
+    <ul>
+        <li>浮动的核心:浮动的元素脱离文档流,向左向右浮动,直达该元素碰到父元素或者下一个浮动元素为止</li>
+        <li>浮动带来的问题:父元素高度坍塌.</li>
+        <li>解决办法:清除浮动</li>
+        <li>清除浮动有clear,BFC(块状格式化上下文这里告诉我们什么是BFC,http://www.cnblogs.com/dolphinX/p/3508869.html)</li>
+    </ul>
+</div>
+<div class="box-wrapper">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div style="clear:both"></div>
+</div>
+</body>
+</html>
+<style>
+    .box-wrapper {
+        border: 5px solid red;
+    }
+    .box-wrapper .box {
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        background-color: green;
+    }
+</style>
